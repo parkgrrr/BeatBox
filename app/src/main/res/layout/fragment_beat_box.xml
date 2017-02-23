@@ -1,7 +1,36 @@
 <layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.bignerdranch.android.beatbox.SoundViewModel"/>
+    </data>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 <android.support.v7.widget.RecyclerView
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="PRogress bar"
+            android:text="@{viewModel.seekBarValue}"
+            android:layout_gravity="bottom"/>
+        <SeekBar
+            android:id="@+id/bottom_speed_bar"
+            android:onProgressChanged="@{viewModel.onValueChanged}"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom"
+            style="@style/Widget.AppCompat.SeekBar"
+            android:max="100"
+            android:progress="100"
+            />
+    </FrameLayout>
 </layout>
