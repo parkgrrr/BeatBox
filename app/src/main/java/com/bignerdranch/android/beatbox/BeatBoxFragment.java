@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BeatBoxFragment extends Fragment {
+public class BeatBoxFragment extends Fragment{
 
     private BeatBox mBeatBox;
 
@@ -34,8 +34,15 @@ public class BeatBoxFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setRetainInstance(true);
 
         mBeatBox = new BeatBox(getActivity());
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mBeatBox.release();
     }
 
     @Override
@@ -50,7 +57,7 @@ public class BeatBoxFragment extends Fragment {
         return binding.getRoot();
     }
 
-    private class SoundHolder extends RecyclerView.ViewHolder {
+    private class SoundHolder extends RecyclerView.ViewHolder{
         private ListItemSoundBinding mBinding;
 
         private SoundHolder(ListItemSoundBinding binding) {
@@ -62,6 +69,7 @@ public class BeatBoxFragment extends Fragment {
             mBinding.getViewModel().setSound(sound);
             mBinding.executePendingBindings();
         }
+
     }
 
 
