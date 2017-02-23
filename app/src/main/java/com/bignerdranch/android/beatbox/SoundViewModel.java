@@ -3,8 +3,6 @@ package com.bignerdranch.android.beatbox;
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
 import android.databinding.ObservableField;
-import android.util.Log;
-import android.widget.SeekBar;
 
 /**
  * Created by pstev on 2/22/2017.
@@ -36,13 +34,5 @@ public class SoundViewModel extends BaseObservable{
 
     public void onButtonClicked() {
         mBeatBox.play(mSound);
-    }
-
-    public void onValueChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
-        Log.v("OVC", "On value change method called");
-        seekBarValue.set(progressValue + "");
-        int id = mSound.getSoundId();
-        mRate = ((float) progressValue);
-        mBeatBox.setRate(id, mRate);
     }
 }

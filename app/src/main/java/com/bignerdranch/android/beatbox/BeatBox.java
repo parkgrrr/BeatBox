@@ -41,10 +41,6 @@ public class BeatBox {
         mSoundPool.play(soundId, 1.0f, 1.0f, 1, 0, 1.0f);
     }
 
-    public void setRate(int id, float rate){
-        mSoundPool.setRate(id, rate);
-    }
-
     public void release() {
         mSoundPool.release();
     }
