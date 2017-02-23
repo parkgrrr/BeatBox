@@ -5,6 +5,9 @@
         <variable
             name="viewModel"
             type="com.bignerdranch.android.beatbox.SoundViewModel"/>
+        <variable
+            name="seekBarValue"
+            type="String"/>
     </data>
     <FrameLayout
         android:layout_width="match_parent"
